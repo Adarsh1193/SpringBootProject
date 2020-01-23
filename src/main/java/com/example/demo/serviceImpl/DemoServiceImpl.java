@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.Entity.BookingRoom;
 import com.example.demo.Entity.User;
+import com.example.demo.Repository.BookingRoomRepository;
 import com.example.demo.Repository.UserRepository;
 import com.example.demo.dto.BookingRoomDto;
 import com.example.demo.service.DemoService;
@@ -16,16 +17,16 @@ public class DemoServiceImpl implements DemoService{
 	}
 	
 	@Autowired
-	UserRepository userRepository;
+	BookingRoomRepository bookingRoom;
 
 	@Override
 	public String addNewRoom(BookingRoomDto dto) {
-		BookingRoom n = new BookingRoom();
-		n.setGuest_id(guest_id);
-		n.setCheck_out(check_out);
-		n.setCheck_in_emp(check_in_emp);
-		n.setNumber_of_guests(number_of_guests);
-		userRepository.save(n);
+		BookingRoom book = new BookingRoom();
+		book.setGuest_id(dto.getGuest_id());
+		book.setCheck_out(dto.getCheck_out());
+		book.setCheck_in_emp(dto.getCheck_in_emp());
+		book.setNumber_of_guests(dto.getNumber_of_guests());
+		bookingRoom.save(book);
 		return "success";
 		
 	}
