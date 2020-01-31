@@ -11,9 +11,17 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	
+	private int category_id;
 	private String bed;
 	private int rooms;
 	private boolean bathroom;
+	
+	public int getCategory_id() {
+		return category_id;
+	}
+	public void setCategory_id(int category_id) {
+		this.category_id = category_id;
+	}
 	public String getBed() {
 		return bed;
 	}

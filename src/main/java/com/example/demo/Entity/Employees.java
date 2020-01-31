@@ -13,6 +13,7 @@ public class Employees {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	
+	private int employee_id;
 	private String name;
 	private String address;
 	private String role;
@@ -24,6 +25,13 @@ public class Employees {
 	private Date join_date;
 	private Date date_of_exiting;
 	private boolean enable;
+	
+	public int getEmployee_id() {
+		return employee_id;
+	}
+	public void setEmployee_id(int employee_id) {
+		this.employee_id = employee_id;
+	}
 	public String getName() {
 		return name;
 	}

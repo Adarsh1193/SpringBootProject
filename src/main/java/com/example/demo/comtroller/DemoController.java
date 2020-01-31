@@ -14,6 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.Entity.User;
 import com.example.demo.Repository.UserRepository;
 import com.example.demo.dto.BookingRoomDto;
+import com.example.demo.dto.BookingServiceDto;
+import com.example.demo.dto.CategoryDto;
+import com.example.demo.dto.EmployeesDto;
+import com.example.demo.dto.GuestsDto;
+import com.example.demo.dto.RoomsDto;
+import com.example.demo.dto.ServiceDto;
+import com.example.demo.dto.TrackingDto;
 import com.example.demo.service.DemoService;
 
 @RestController
@@ -66,8 +73,37 @@ public class DemoController {
 	}
 	
 	@PostMapping(path = "/bookingservice")
-	public @ResponseBody String addNewService() {
-		return "success";
+	public @ResponseBody String addNewBookService(@RequestBody BookingServiceDto bookservice) {
+		return demoservice.addNewBookService(bookservice);
 	}
-
+	
+	@PostMapping(path = "/category")
+	public @ResponseBody String addNewCategory(@RequestBody CategoryDto category) {
+		return demoservice.addNewCategory(category);
+	}
+	
+	@PostMapping(path = "/employees")
+	public @ResponseBody String addNewEmployees(@RequestBody EmployeesDto employees) {
+		return demoservice.addNewEmployees(employees);
+	}
+	
+	@PostMapping(path = "/guests")
+	public @ResponseBody String addNewGuests(@RequestBody GuestsDto guests) {
+		return demoservice.addNewGuests(guests);
+	}
+	
+	@PostMapping(path = "/rooms")
+	public @ResponseBody String addNewRooms(@RequestBody RoomsDto rooms) {
+		return demoservice.addNewRooms(rooms);
+	}
+	
+	@PostMapping(path = "/service")
+	public @ResponseBody String addNewService(@RequestBody ServiceDto services) {
+		return demoservice.addNewService(services);
+	}
+	
+	@PostMapping(path = "/tracking")
+	public @ResponseBody String addNewTracking(@RequestBody TrackingDto tracking) {
+		return demoservice.addNewTracking(tracking);
+	}
 }
